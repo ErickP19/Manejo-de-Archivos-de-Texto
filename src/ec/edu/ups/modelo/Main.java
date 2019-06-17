@@ -21,7 +21,7 @@ public class Main {
         File archivo1 = new File(ruta);
         File[] archivo2 = archivo1.listFiles();
         for (File archi : archivo2) {
-            if (!archi.getName().equals("ConteoPalabras.txt")) {   
+            if (!archi.getName().equals("Resultado.txt")) {   
                 control.modelo(ruta + "\\" + archi.getName());     
             }
         }    

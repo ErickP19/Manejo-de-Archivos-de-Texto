@@ -23,20 +23,20 @@ import java.util.List;
  */
 public class Controlador {
     
-    private String palabra;
+    private String linea;
     private List<Palabras> lista;
 
     public Controlador() {
         lista = new ArrayList<>();
     }
     public void modelo(String ruta) throws IOException {
-        palabra = "";
+        linea = "";
         try {
             FileReader archivo = new FileReader(ruta);
             BufferedReader leer = new BufferedReader(archivo);
-            while (palabra != null) {
-                palabra = leer.readLine();
-                if (palabra != null) {
+            while (linea != null) {
+                linea = leer.readLine();
+                if (linea != null) {
                     leer();
                 }
             }
@@ -44,12 +44,10 @@ public class Controlador {
         } catch (FileNotFoundException errorArc) {
 
             System.out.println("No existe el archivo");
-            System.out.println(errorArc.toString());
 
         } catch (IOException errorLeer) {
 
             System.out.println("Error de Escritura");
-            System.out.println(errorLeer.toString());
 
         }
 
@@ -63,7 +61,7 @@ public class Controlador {
             if (pala.getNombre().equals(palabra)) {
 
                 pala.setCantidad(pala.getCantidad() + 1);
-                cont++;
+                cont=1;
 
                 break;
 
@@ -82,7 +80,7 @@ public class Controlador {
 
     public void leer() {
 
-        String palabras[] = palabra.split(" ");
+        String palabras[] = linea.split(" ");
         for (int i = 0; i < palabras.length; i++) {
 
             comprobar(palabras[i].toLowerCase());
@@ -104,11 +102,11 @@ public class Controlador {
 
         try {
 
-            String ruta = "Resultado.txt";
+            String ruta = "C:\\Users\\erics\\OneDrive\\Documentos\\NetBeansProjects\\ArchivosDeTexto\\src\\ec\\edu\\ups\\texto\\Resultado.txt";
             FileWriter archivo = new FileWriter(ruta, false);
             BufferedWriter escribir = new BufferedWriter(archivo);
 
-            System.out.println("RESPUESTA");
+            System.out.println("Resultado Palabras");
             for (Palabras p1 : lista) {
 
                 escribir.append(p1.getNombre() + " " + p1.getCantidad());
