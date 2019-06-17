@@ -1,0 +1,4 @@
+hola 2
+mundo 2
+perro 2
+gato 1
